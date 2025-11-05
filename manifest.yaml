@@ -1,0 +1,30 @@
+unique_identifier: joshfialkoff/people-search-bot
+name: People Search Bot
+version: "1.1.4"
+description: A Dify HTTP tool that searches publicly available information (DuckDuckGo + Wikipedia)
+author: Josh Fialkoff
+tool:
+  type: http
+  metadata:
+    category: utility
+    name:
+      en_US: People Search
+    description:
+      en_US: A Dify HTTP tool to search for people by name.
+  endpoints:
+    - id: people-search
+      name:
+        en_US: People Search
+      method: GET
+      url: http://people-search:8080/search
+      params:
+        - name: q
+          label:
+            en_US: Name
+          required: true
+          type: string
+          description:
+            en_US: Name of the person to search
+      response:
+        type: json
+        path: "$"
